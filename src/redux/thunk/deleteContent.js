@@ -2,7 +2,7 @@ import { deleteContentData } from "../actionCreators/contentActions";
 
 const deleteContent = (id) => {
     return async (dispatch, getState) => {
-        const res = await fetch(`http://localhost:5000/product/${id}`, {
+        const res = await fetch(`https://moon-tech-server-omega.vercel.app/product/${id}`, {
             method: 'DELETE'
         });
         const data = await res.json();
