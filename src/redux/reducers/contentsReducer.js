@@ -21,10 +21,9 @@ const contentsReducer = (state = initialState, action) => {
                 contents: [...state.contents, action.payload]
             }
         case UPDATE_CONTENT:
-            const newContents = state.contents.filter(content => content._id !== action.payload.id)
             return {
                 ...state,
-                contents: [...newContents, action.payload.content]
+                contents: [...state.contents.filter(content => content._id !== action.payload.id), action.payload.content]
             }
 
         case DELETE_CONTENT:

@@ -9,7 +9,7 @@ const ContentList = () => {
         dispatch(getContents());
     }, [dispatch]);
 
-    const contents = useSelector(state => state.contents);
+    const contents = useSelector(state => state.contents) ?? [];
     return (
         <div className='w-full'>
             <div className="overflow-x-auto">

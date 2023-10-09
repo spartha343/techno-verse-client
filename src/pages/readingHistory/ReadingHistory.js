@@ -6,8 +6,8 @@ import { addToReadingHistory } from '../../redux/actionCreators/contentActions';
 const ReadingHistory = () => {
 
     const dispatch = useDispatch();
-    const readingHistoryIds = useSelector(state => state.readingHistories);
-    const contents = useSelector(state => state.contents);
+    const readingHistoryIds = useSelector(state => state.readingHistories) ?? [];
+    const contents = useSelector(state => state.contents) ?? [];
     let readingHistories = []
     readingHistoryIds.forEach(id => {
         readingHistories.push(contents.find(content => content._id === id));

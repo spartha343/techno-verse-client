@@ -1,4 +1,4 @@
-import getContents from "./getContents";
+import { updateContentData } from "../actionCreators/contentActions";
 
 const updateContent = (id, content) => {
     return async (dispatch, getState) => {
@@ -11,7 +11,7 @@ const updateContent = (id, content) => {
         })
         const data = await res.json();
         if (data.ok) {
-            dispatch(getContents())
+            dispatch(updateContentData(content, id))
         }
     }
 }

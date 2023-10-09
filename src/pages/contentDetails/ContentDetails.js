@@ -4,13 +4,13 @@ import { useParams } from 'react-router-dom';
 
 const ContentDetails = () => {
     const { id } = useParams();
-    const contents = useSelector(state => state.contents);
+    const contents = useSelector(state => state.contents) ?? [];
     const content = contents.find(c => c._id === id);
-    const { image, keyFeature, model, price, rating, spec, status } = content;
+    const { image, keyFeature, model, price, rating, spec, status } = content ?? {};
     return (
         <div className='flex justify-evenly'>
             <div className='lg:w-1/2 m-3'>
-                <img src={image} alt={model} />
+                <img className='rounded-2xl' src={image} alt={model} />
             </div>
             <div className='lg: w-1/2 m-3'>
                 <h3 className='text-xl'>{model}</h3>

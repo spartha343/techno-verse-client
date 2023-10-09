@@ -79,7 +79,7 @@ const AddContent = () => {
                                 <textarea className="textarea textarea-bordered h-24" name='tags' placeholder="Add Tags separated by ','(comma)" required></textarea>
                             </div>
                             <div className='relative mb-12'>
-                                <input type="submit" className='btn mt-3 absolute right-0 top-0' />
+                                <input type="submit" value='Add' className='btn mt-3 absolute right-0 top-0' />
                             </div>
                         </div>
                     </form>

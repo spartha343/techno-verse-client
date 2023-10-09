@@ -5,14 +5,14 @@ import { addToReadingHistory, selectTag } from '../../redux/actionCreators/conte
 
 const ContentCard = ({ content }) => {
     const dispatch = useDispatch();
-    const { image, model, price, rating, _id, tags } = content;
+    const { image, model, price, rating, _id, tags } = content ?? {};
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
-            <figure><img src={image} alt="Shoes" /></figure>
+            <figure><img className='h-80' src={image} alt="Shoes" /></figure>
             <div className="card-body relative">
                 <h2 className="card-title">{model}</h2>
 
-                <div className='mb-10'>
+                <div className='mb-5'>
                     <h3>Rating: {rating}</h3>
                     <h3>Price: ${price}</h3>
                     {

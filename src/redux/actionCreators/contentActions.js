@@ -1,4 +1,4 @@
-import { ADD_CONTENT, ADD_TO_READING_HISTORY, DELETE_CONTENT, GET_CONTENT, SELECT_TAG, TOGGLE_SORTING_ORDER } from "../actionTypes/actionTypes"
+import { ADD_CONTENT, ADD_TO_READING_HISTORY, DELETE_CONTENT, GET_CONTENT, SELECT_TAG, TOGGLE_SORTING_ORDER, UPDATE_CONTENT } from "../actionTypes/actionTypes"
 
 export const getContentsData = (contents) => {
     return {
@@ -14,12 +14,12 @@ export const addContentData = (content) => {
     }
 }
 
-// export const updateContentData = (content, id) => {
-//     return {
-//         type: UPDATE_CONTENT,
-//         payload: { content, id }
-//     }
-// }
+export const updateContentData = (content, id) => {
+    return {
+        type: UPDATE_CONTENT,
+        payload: { content, id }
+    }
+}
 
 export const deleteContentData = (id) => {
     return {

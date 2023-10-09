@@ -10,9 +10,12 @@ const UpdateContent = () => {
     useEffect(() => {
         dispatch(getContents());
     }, [dispatch]);
-    const cnt = useSelector(state => state.contents.find(content => content._id === id));
-    const { image, keyFeature, model, price, rating, spec, tags } = cnt || {};
-    const s = [...spec?.map(s => Object.keys(s) + ':' + Object.values(s) + '')]
+    const cnt = useSelector(state => state.contents.find(content => content._id === id)) ?? {};
+    const { image, keyFeature, model, price, rating, spec, tags } = cnt;
+    let s;
+    if (cnt.spec) {
+        s = [...spec?.map(s => Object.keys(s) + ':' + Object.values(s) + '')]
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -78,18 +81,18 @@ const UpdateContent = () => {
                         <div className='lg:w-1/2 mx-3'>
                             <div className="form-control">
                                 <label className="label"><span className="label-text">Key Features</span></label>
-                                <textarea className="textarea textarea-bordered h-24" name='keyFeature' placeholder="Add key features separated by ','(comma)" defaultValue={keyFeature.join(', ')} required></textarea>
+                                <textarea className="textarea textarea-bordered h-24" name='keyFeature' placeholder="Add key features separated by ','(comma)" defaultValue={keyFeature?.join(', ')} required></textarea>
                             </div>
                             <div className="form-control">
                                 <label className="label"><span className="label-text">Specifications</span></label>
-                                <textarea className="textarea textarea-bordered h-24" name='spec' placeholder="Add Specifications like 'key: value' pair separated by ','(comma)" defaultValue={s.join(', ')} required></textarea>
+                                <textarea className="textarea textarea-bordered h-24" name='spec' placeholder="Add Specifications like 'key: value' pair separated by ','(comma)" defaultValue={s?.join(', ')} required></textarea>
                             </div>
                             <div className="form-control">
                                 <label className="label"><span className="label-text">Tags</span></label>
-                                <textarea className="textarea textarea-bordered h-24" name='tags' placeholder="Add Tags separated by ','(comma)" defaultValue={tags.join(', ')} required></textarea>
+                                <textarea className="textarea textarea-bordered h-24" name='tags' placeholder="Add Tags separated by ','(comma)" defaultValue={tags?.join(', ')} required></textarea>
                             </div>
                             <div className='relative mb-12'>
-                                <input type="submit" className='btn mt-3 absolute right-0 top-0' />
+                                <input type="submit" value='Update' className='btn mt-3 absolute right-0 top-0' />
                             </div>
                         </div>
                     </form>
